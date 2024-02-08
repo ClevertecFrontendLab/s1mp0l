@@ -1,0 +1,61 @@
+@import "variables";
+
+html,
+body,
+#root {
+    margin: 0;
+    padding: 0;
+    font-family: $font-family;
+}
+
+//.colorWeak {
+//    filter: invert(80%);
+//}
+//.ant-layout-header {
+//    background: $primary-light-1;
+//}
+//.ant-layout-footer {
+//    background: transparent;
+//    padding: 0 24px;
+//}
+//.ant-layout {
+//    min-height: 100vh;
+//    background: transparent;
+//}
+//.ant-pro-sider.ant-layout-sider.ant-pro-sider-fixed {
+//    left: unset;
+//}
+
+canvas {
+    display: block;
+}
+
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+@media (max-width: 768px) {
+
+}
+
+#root {
+    background: url('public/main_page_light.png') center center fixed;
+    background-size: cover;
+}
+
+.ant-divider-horizontal {
+    margin: 0;
+}
+
+@media (max-width: 834px) {
+    h1.ant-typography {
+        font-size: 20px;
+    }
+}

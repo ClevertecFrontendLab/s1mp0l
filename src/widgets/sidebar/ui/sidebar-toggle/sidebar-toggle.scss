@@ -1,0 +1,20 @@
+.trapezium-button {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    width: 20px;
+    height: 66px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trapezium {
+    position: absolute;
+    z-index: -1;
+}
+
+@media (max-width: 360px) {
+
+}

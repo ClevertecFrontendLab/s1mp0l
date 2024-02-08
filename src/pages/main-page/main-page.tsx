@@ -1,34 +1,45 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import reactLogo from '/react.svg';
-import viteLogo from '/vite.svg';
-import tsLogo from '/ts.svg';
-import './main-page.css';
+import {Content, Header} from "antd/es/layout/layout";
+import {Breadcrumb, Button, Layout, Typography} from "antd";
+import {CardsSection} from "@pages/main-page/ui/cards-section/cards-section.tsx";
+import {Flex} from "@shared/ui/flex/flex.tsx";
+import {DownloadCard} from "@widgets/download-card/ui/download-card.tsx";
+import {SettingOutlined} from "@ant-design/icons";
+import {useIsMobile} from "@shared/lib/hooks/use-is-mobile.ts";
 
 export const MainPage: React.FC = () => {
-    const [count, setCount] = useState(0);
-
+    const isMobile = useIsMobile();
     return (
-        <>
-            <div>
-                <a href='https://vitejs.dev' target='_blank'>
-                    <img src={viteLogo} className='logo' alt='Vite logo' />
-                </a>
-                <a href='https://react.dev' target='_blank'>
-                    <img src={reactLogo} className='logo react' alt='React logo' />
-                </a>
-                <a href='https://www.typescriptlang.org/' target='_blank'>
-                    <img src={tsLogo} className='logo' alt='TS logo' />
-                </a>
-            </div>
-            <h1>Vite + React + TS</h1>
-            <div className='card'>
-                <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-                <p>
-                    Edit <code>src/pages/main-page.tsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className='read-the-docs'>Click on the Vite and React logos to learn more</p>
-        </>
+        <Layout>
+            <Header className={'header'}>
+                <Breadcrumb>Главная</Breadcrumb>
+                <Flex flexDirection={'row'} alignItems={'flex-start'}>
+                    <Typography.Title>Приветствуем тебя в CleverFit — приложении, которое поможет тебе добиться своей мечты!</Typography.Title>
+                    <Button type={isMobile ? 'default' : 'text'} shape={isMobile ? 'circle' : 'default'}>
+                        <SettingOutlined />
+                        {!isMobile && <span>Настройки</span>}
+                    </Button>
+                </Flex>
+            </Header>
+            <Content style={{padding: 24}}>
+                <Flex
+                    gap={isMobile ? 24 : 180}
+                    alignItems={'flex-start'}
+                    flexWrap={isMobile ? 'wrap' : 'nowrap'}
+                >
+                    <CardsSection isMobile={isMobile} />
+                    <Flex
+                        flexDirection={'row'}
+                        justifyContent={'space-between'}
+                        alignItems={'flex-end'}
+                        flexWrap={isMobile ? 'wrap-reverse' : 'nowrap'}
+                    >
+                        <Button type={'text'}>Смотреть отзывы</Button>
+                        <DownloadCard />
+                    </Flex>
+                </Flex>
+            </Content>
+        </Layout>
     );
 };
