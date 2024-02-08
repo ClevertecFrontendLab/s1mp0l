@@ -2,6 +2,7 @@ import path from 'path';
 
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
+import {antdThemeConfig} from "./antd-theme-config";
 
 export default defineConfig({
     plugins: [react()],
@@ -12,13 +13,23 @@ export default defineConfig({
     resolve: {
         alias: {
             '@public': path.resolve(__dirname, 'public'),
-            '@components': path.resolve(__dirname, 'src/components'),
-            '@constants': path.resolve(__dirname, 'src/constants'),
-            '@hooks': path.resolve(__dirname, 'src/hooks'),
+            '@app': path.resolve(__dirname, 'src/app'),
+            '@widgets': path.resolve(__dirname, 'src/widgets'),
+            '@features': path.resolve(__dirname, 'src/features'),
             '@pages': path.resolve(__dirname, 'src/pages'),
-            '@redux': path.resolve(__dirname, 'src/redux'),
-            '@types': path.resolve(__dirname, 'src/types'),
-            '@utils': path.resolve(__dirname, 'src/utils'),
+            '@shared': path.resolve(__dirname, 'src/shared'),
+            '@entities': path.resolve(__dirname, 'src/entities'),
         },
     },
+    css: {
+        modules: {
+            localsConvention: 'camelCaseOnly'
+        },
+        preprocessorOptions: {
+            less: {
+                javascriptEnabled: true,
+                modifyVars: antdThemeConfig
+            }
+        }
+    }
 });
