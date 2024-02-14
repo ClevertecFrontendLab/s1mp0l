@@ -1,5 +1,7 @@
-import {Card} from "antd";
+import {Button, Card, Divider} from "antd";
 import {Flex} from "@shared/ui/flex/flex.tsx";
+import {CalculatorTwoTone, IdcardTwoTone, TrophyTwoTone} from "@ant-design/icons";
+
 
 interface CardsSectionProps {
     isMobile: boolean;
@@ -24,31 +26,29 @@ export const CardsSection = (props: CardsSectionProps) => {
                     }}>
                         <Card style={{flexBasis: 'auto'}}>
                             <span>Расписать тренировки</span>
+                            <Divider/>
+                            <Button type='text'>
+                                <TrophyTwoTone/>
+                                <span>Тренировки</span>
+                            </Button>
                         </Card>
                         <Card>
-                            <span>Назначить календарь</span>
+                        <span>Назначить календарь</span>
+                            <Divider />
+                            <Button type='text'>
+                                <CalculatorTwoTone />
+                                <span>Календарь</span>
+                            </Button>
                         </Card>
                         <Card>
                             <span>Заполнить профиль</span>
+                            <Divider />
+                            <Button type='text'>
+                                <IdcardTwoTone />
+                                <span>Профиль</span>
+                            </Button>
                         </Card>
                     </div>
-                    {/*<Row gutter={[16, 0]} wrap={isMobile}>*/}
-                    {/*    <Col span={8}>*/}
-                    {/*        <Card style={{minWidth: '200px'}}>*/}
-                    {/*            <span>Расписать тренировки</span>*/}
-                    {/*        </Card>*/}
-                    {/*    </Col>*/}
-                    {/*    <Col span={8}>*/}
-                    {/*        <Card>*/}
-                    {/*            <span>Назначить календарь</span>*/}
-                    {/*        </Card>*/}
-                    {/*    </Col>*/}
-                    {/*    <Col span={8}>*/}
-                    {/*        <Card>*/}
-                    {/*            <span>Заполнить профиль</span>*/}
-                    {/*        </Card>*/}
-                    {/*    </Col>*/}
-                    {/*</Row>*/}
                 </Flex>
             </Flex>
         </div>
